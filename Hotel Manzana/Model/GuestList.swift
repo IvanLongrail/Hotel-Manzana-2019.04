@@ -30,6 +30,11 @@ struct GuestList: Codable {
         return index
     }
     
+    mutating func change(at index: Int, by guest: Registration) {
+        self.currentGuests.remove(at: index)
+        add(guest)
+    }
+    
     mutating func addToArchive(from index: Int) {
         let newArchiveGuest = self.currentGuests[index]
         self.archiveGuests.append(newArchiveGuest)

@@ -26,23 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8273081"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
-            landmarkName = "unwind(for:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.827412"
+            timestampString = "580740677.985715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -58,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.827468"
+            timestampString = "580740677.986251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "92"
@@ -106,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.827511"
+            timestampString = "580740677.986531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -122,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewCell.swift"
-            timestampString = "580679074.248176"
+            timestampString = "580740366.169964"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "11"
@@ -215,11 +199,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.82757"
+            timestampString = "580740677.986851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "unwind(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -231,11 +215,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8276139"
+            timestampString = "580740677.987141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "194"
-            endingLineNumber = "194"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
             landmarkName = "unwind(for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -243,11 +227,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.827655"
+            timestampString = "580740677.987426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
@@ -263,11 +247,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.827704"
+            timestampString = "580740677.987716"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -279,11 +263,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/Model/GuestList.swift"
-            timestampString = "580680759.827762"
+            timestampString = "580738000.388351"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "addToArchive(from:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -295,11 +279,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8278151"
+            timestampString = "580740677.98803"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "setup(_:with:)"
             landmarkType = "7">
             <Locations>
@@ -358,11 +342,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.82787"
+            timestampString = "580740677.9883291"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "setup(_:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -374,11 +358,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.827924"
+            timestampString = "580740677.988608"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "244"
-            endingLineNumber = "244"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "setupDetailCellOutlets(in:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -390,11 +374,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8279999"
+            timestampString = "580740677.988889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "setupDetailCellOutlets(in:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -406,7 +390,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828065"
+            timestampString = "580740677.989164"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -422,11 +406,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828126"
+            timestampString = "580740677.989444"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -438,11 +422,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828189"
+            timestampString = "580740677.989736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "tableView(_:viewForHeaderInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -454,7 +438,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8282501"
+            timestampString = "580740677.990026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
@@ -470,7 +454,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828308"
+            timestampString = "580740677.9903131"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -486,7 +470,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828371"
+            timestampString = "580740677.990591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
@@ -502,7 +486,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8284529"
+            timestampString = "580740677.9908611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "118"
@@ -518,11 +502,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828508"
+            timestampString = "580740677.991171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -534,7 +518,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.82856"
+            timestampString = "580740677.99146"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
@@ -550,7 +534,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828608"
+            timestampString = "580740677.991828"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
@@ -566,7 +550,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8286591"
+            timestampString = "580740677.992119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -582,7 +566,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828709"
+            timestampString = "580740677.992341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -598,7 +582,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828759"
+            timestampString = "580740677.9925621"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "149"
@@ -614,7 +598,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828809"
+            timestampString = "580740677.992782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
@@ -630,7 +614,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.8288749"
+            timestampString = "580740677.993001"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -646,11 +630,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828928"
+            timestampString = "580740677.993217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
             landmarkName = "setupColors(of:withTypeCell:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -662,13 +646,172 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
-            timestampString = "580680759.828977"
+            timestampString = "580740677.993435"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "setupColors(of:withTypeCell:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
+            timestampString = "580740677.993652"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "unwind(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
+            timestampString = "580740677.993897"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "unwind(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
+            timestampString = "580740677.994115"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
+            landmarkName = "unwind(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
+            timestampString = "580740677.994331"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "prepare(for:sender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Manzana/View Controller/Guest List/GuestListTableViewController.swift"
+            timestampString = "580740677.9945509"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "unwind(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Manzana/View Controller/Add Registration/AddRegistrationTableViewController.swift"
+            timestampString = "580740677.994809"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "updateGuest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Hotel Manzana/View Controller/Add Registration/AddRegistrationTableViewController.swift"
+            timestampString = "580740677.994874"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "textFieldChanged(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hotel_Manzana.AddRegistrationTableViewController.textFieldChanged(__C.UITextField) -&gt; ()"
+                  moduleName = "Hotel Manzana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/longrail/Documents/Webinar%202/Lesson%2014/HW/Hotel-Manzana-2019.04-master/Hotel%20Manzana/View%20Controller/Add%20Registration/AddRegistrationTableViewController.swift"
+                  timestampString = "580738670.631168"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "86">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hotel_Manzana.AddRegistrationTableViewController.textFieldChanged(__C.UITextField) -&gt; ()"
+                  moduleName = "Hotel Manzana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/longrail/Documents/Webinar%202/Lesson%2014/HW/Hotel-Manzana-2019.04-master/Hotel%20Manzana/View%20Controller/Add%20Registration/AddRegistrationTableViewController.swift"
+                  timestampString = "580738670.633516"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "356">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Hotel_Manzana.AddRegistrationTableViewController.textFieldChanged(__C.UITextField) -&gt; ()"
+                  moduleName = "Hotel Manzana"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/longrail/Documents/Webinar%202/Lesson%2014/HW/Hotel-Manzana-2019.04-master/Hotel%20Manzana/View%20Controller/Add%20Registration/AddRegistrationTableViewController.swift"
+                  timestampString = "580738670.635812"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "583">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

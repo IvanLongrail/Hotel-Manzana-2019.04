@@ -29,6 +29,8 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBOutlet weak var totalPriceLabel: UILabel!
     
     // MARK: - UI Properties
+    let saveButtonEditMode = false
+    
     let checkInDatePickerCellIndexPath = IndexPath(row: 1, section: 1)
     let checkOutDatePickerCellIndexPath = IndexPath(row: 3, section: 1)
     let wifiTotalPriceCellIndexPath = IndexPath(row: 1, section: 3)
@@ -49,24 +51,13 @@ class AddRegistrationTableViewController: UITableViewController {
     var isWiFiTotalPriceShown = false
     var isRoomSelect = false
     
+    var keyboardDismissTapGesture: UIGestureRecognizer?
+    
     // MARK: - Data Properties
     var guest: Registration?
     var correctEnteredGuest = false {
         didSet {
             saveButton.isEnabled = correctEnteredGuest
-            guard correctEnteredGuest else { return }
-            
-            let firstName = firstNameField.text!
-            let lastName = lastNameField.text!
-            let email = emailField.text!
-            let checkInDate = checkInDatePicker.date
-            let checkOutDate = checkOutDatePicker.date
-            let numberOfAdults = Int(numberOfAdultsStepper.value)
-            let numberOfChildren = Int(numberOfChildrenStepper.value)
-            let wifi = wifiSwitch.isOn
-            let roomType = selectedRoom!
-            
-            guest = Registration(firstName: firstName, lastName: lastName, emailAddress: email, checkInDate: checkInDate, checkOutDate: checkOutDate, numberOfAdults: numberOfAdults, numberOfChildren: numberOfChildren, roomType: roomType, wifi: wifi)
         }
     }
     
@@ -76,6 +67,7 @@ class AddRegistrationTableViewController: UITableViewController {
         didSet {
             isRoomSelect = selectedRoom != nil ? true : false
             updateCorrectEnteredGuest()
+            updateGuest()
         }
     }
     var totalPrice: Int = 0
@@ -85,6 +77,16 @@ class AddRegistrationTableViewController: UITableViewController {
         super.viewDidLoad()
         setupUI()
         updateUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeKeyboardNotifications()
+        super.viewWillDisappear(animated)
     }
     
     // MARK: - Custom UI Methods
@@ -100,6 +102,7 @@ class AddRegistrationTableViewController: UITableViewController {
     
     func setupSaveButton() {
         saveButton.isEnabled = false
+        saveButton.title = guest != nil ? "Save" : "Add"
     }
     
     func setupUI() {
@@ -138,6 +141,25 @@ class AddRegistrationTableViewController: UITableViewController {
     
     func updateUI() {
         updateDateViews()
+        updateUIWithGuest()
+    }
+    
+    func updateUIWithGuest() {
+        guard let editingGuest = guest else { return }
+        firstNameField.text = editingGuest.firstName
+        lastNameField.text = editingGuest.lastName
+        emailField.text = editingGuest.emailAddress
+        checkInDateLabel.text = guest?.checkInDate.guestListDateFormatString
+        checkInDateLabel.isEnabled = false
+        checkInDatePicker.isEnabled = false
+        checkOutDatePicker.date = editingGuest.checkOutDate
+        checkOutDateLabel.text = guest?.checkOutDate.guestListDateFormatString
+        numberOfAdultsStepper.value = Double(editingGuest.numberOfAdults)
+        numberOfAdultsLabel.text = "\(Int(numberOfAdultsStepper.value))"
+        numberOfChildrenStepper.value = Double(editingGuest.numberOfChildren)
+        numberOfChildrenLabel.text = "\(Int(numberOfChildrenStepper.value))"
+        wifiSwitch.isOn = editingGuest.wifi
+        selectedRoom = editingGuest.roomType
     }
     
     // MARK: - Custom Methods
@@ -146,6 +168,22 @@ class AddRegistrationTableViewController: UITableViewController {
         let lastNameValid = resultOfLastNameValidation()
         let emailValid = resultOfEmailValidation()
         correctEnteredGuest = isRoomSelect && firstNameValid && lastNameValid && emailValid
+    }
+    
+    func updateGuest() {
+        guard correctEnteredGuest else { return }
+        
+        let firstName = firstNameField.text!
+        let lastName = lastNameField.text!
+        let email = emailField.text!
+        let checkInDate = checkInDatePicker.date
+        let checkOutDate = checkOutDatePicker.date
+        let numberOfAdults = Int(numberOfAdultsStepper.value)
+        let numberOfChildren = Int(numberOfChildrenStepper.value)
+        let wifi = wifiSwitch.isOn
+        let roomType = selectedRoom!
+
+        guest = Registration(firstName: firstName, lastName: lastName, emailAddress: email, checkInDate: checkInDate, checkOutDate: checkOutDate, numberOfAdults: numberOfAdults, numberOfChildren: numberOfChildren, roomType: roomType, wifi: wifi)
     }
     
     // MARK: - Text Fields Validation
@@ -161,21 +199,39 @@ class AddRegistrationTableViewController: UITableViewController {
         return !emailField.text!.isEmpty
     }
     
+    
     // MARK: - IB Actions
+    @IBAction func textFieldChanged(_ sender: UITextField) {
+        switch sender {
+        case firstNameField:
+            guard resultOfFirstNameValidation() else { return }
+        case lastNameField:
+            guard resultOfLastNameValidation() else { return }
+        case emailField:
+            guard resultOfEmailValidation() else { return }
+        default:
+            return
+        }
+        updateGuest()
+    }
+  
     @IBAction func datePickerValueChanged() {
         updateDateViews()
         updateWiFiTotalPrice()
         updateTotalPrice()
+        updateGuest()
     }
     
     @IBAction func stepperValueChanged() {
         updateNumberOfGuests()
+        updateGuest()
     }
     
     @IBAction func wifiSwitchChangeValue() {
         isWiFiTotalPriceShown = wifiSwitch.isOn
         updateWiFiTotalPrice()
         updateTotalPrice()
+        updateGuest()
         tableView.beginUpdates()
         tableView.endUpdates()
     }
@@ -237,6 +293,15 @@ extension AddRegistrationTableViewController /*: UITableViewDelegate */ {
     }
 }
 
+// MARK: - Text Field Delegate
+extension AddRegistrationTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
 // MARK: - Segues
 extension AddRegistrationTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -265,4 +330,45 @@ extension AddRegistrationTableViewController {
         updateTotalPrice()
     }
     
+}
+
+// MARK: - Keyboard Notifications
+extension AddRegistrationTableViewController {
+    
+    func setupKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        addTapRecognizer()
+    }
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        removeTapRecognizer()
+    }
+    
+    //dismiss keyboard by tap
+    func addTapRecognizer() {
+        if keyboardDismissTapGesture == nil {
+            keyboardDismissTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+            keyboardDismissTapGesture?.cancelsTouchesInView = false
+            self.view.addGestureRecognizer(keyboardDismissTapGesture!)
+        }
+    }
+    
+    func removeTapRecognizer() {
+        if keyboardDismissTapGesture != nil {
+            self.view.removeGestureRecognizer(keyboardDismissTapGesture!)
+            keyboardDismissTapGesture = nil
+        }
+    }
+    
+    @objc func dismissKeyboard(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
 }

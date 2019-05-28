@@ -21,6 +21,7 @@ class GuestListTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    var editingIndexPath: IndexPath?
     var detailCellIndexPath: IndexPath? = nil
     static var wifiPricePerDay = 10
     
@@ -78,7 +79,6 @@ class GuestListTableViewController: UITableViewController {
         header.addSubview(mainLabel)
         header.addSubview(nameLabel)
         header.addSubview(checkoutLabel)
-        //header.addSubview(sortButton)
 
         return header
     }
@@ -164,6 +164,8 @@ class GuestListTableViewController: UITableViewController {
         case 0:
             let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: { (_, indexPath) in
 
+                self.editingIndexPath = indexPath
+                self.performSegue(withIdentifier: "editGuestSegue", sender: indexPath)
             })
 
             let toArchiveAction = UITableViewRowAction(style: .destructive, title: "Archive") { (_, indexPath) in
@@ -189,13 +191,29 @@ class GuestListTableViewController: UITableViewController {
         }
     }
     
+    // MARK: - Prepare Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "editGuestSegue" else { return }
+        guard sender is IndexPath else { return }
+        let addRegistrationViewController = segue.destination as! AddRegistrationTableViewController
+        let indexPath = sender as! IndexPath
+        addRegistrationViewController.guest = guestList.currentGuests[indexPath.row]
+    }
+
     // MARK: - Unwind Method
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard segue.identifier == "AddGuest" else { return }
         
         let addRegistrationTableViewController = segue.source as! AddRegistrationTableViewController
         
-        newGuest = addRegistrationTableViewController.guest
+        if addRegistrationTableViewController.saveButton.title == "Add" {
+            
+            let g = addRegistrationTableViewController.guest
+            newGuest = addRegistrationTableViewController.guest
+        } else {
+            guestList.change(at: editingIndexPath!.row, by: addRegistrationTableViewController.guest!)
+            uploadGuestList()
+        }
 
         tableView.reloadData()
     }
@@ -280,7 +298,7 @@ extension GuestListTableViewController {
             
         case 2:
             setTextColor(in: cell, with: .white)
-            cell.backgroundColor = .darkGray
+            cell.backgroundColor = .lightGray
         default:
             break
         }
