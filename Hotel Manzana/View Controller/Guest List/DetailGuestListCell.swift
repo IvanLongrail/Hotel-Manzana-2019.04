@@ -23,15 +23,4 @@ class DetailGuestListCell: UITableViewCell {
     @IBOutlet weak var wifiPricePerDayLabel: UILabel!
     @IBOutlet weak var totalDaysLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
 }

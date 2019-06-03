@@ -23,6 +23,8 @@
 		B66DFDB2228B6BA30081512F /* GuestListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66DFDB1228B6BA30081512F /* GuestListTableViewCell.swift */; };
 		B6C59CF22292B248006ABFD2 /* DetailGuestListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C59CF12292B248006ABFD2 /* DetailGuestListCell.xib */; };
 		B6C59CF42292B280006ABFD2 /* DetailGuestListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C59CF32292B280006ABFD2 /* DetailGuestListCell.swift */; };
+		B6FCABC422A0135800B48206 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FCABC322A0135800B48206 /* String.swift */; };
+		B6FCABC622A14AD700B48206 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FCABC522A14AD700B48206 /* TextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,12 +40,14 @@
 		693DA53E226E2FB00076BCA9 /* AddRegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegistrationTableViewController.swift; sourceTree = "<group>"; };
 		B66DFDA22288A9CD0081512F /* RoomSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectTableViewController.swift; sourceTree = "<group>"; };
 		B66DFDA42288AE7C0081512F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		B66DFDA62288BFB30081512F /* RoomSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectTableViewCell.swift; sourceTree = "<group>"; };
+		B66DFDA62288BFB30081512F /* RoomSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoomSelectTableViewCell.swift; path = "Hotel Manzana/View Controller/Room Select/RoomSelectTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		B66DFDAA228B42D30081512F /* GuestListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestListTableViewController.swift; sourceTree = "<group>"; };
 		B66DFDAC228B4BB10081512F /* GuestList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestList.swift; sourceTree = "<group>"; };
-		B66DFDB1228B6BA30081512F /* GuestListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestListTableViewCell.swift; sourceTree = "<group>"; };
+		B66DFDB1228B6BA30081512F /* GuestListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GuestListTableViewCell.swift; path = "Hotel Manzana/View Controller/Guest List/GuestListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		B6C59CF12292B248006ABFD2 /* DetailGuestListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailGuestListCell.xib; sourceTree = "<group>"; };
-		B6C59CF32292B280006ABFD2 /* DetailGuestListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGuestListCell.swift; sourceTree = "<group>"; };
+		B6C59CF32292B280006ABFD2 /* DetailGuestListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailGuestListCell.swift; path = "Hotel Manzana/View Controller/Guest List/DetailGuestListCell.swift"; sourceTree = SOURCE_ROOT; };
+		B6FCABC322A0135800B48206 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		B6FCABC522A14AD700B48206 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 			children = (
 				69242D7C226E427D00B1AF1C /* IndexPath.swift */,
 				B66DFDA42288AE7C0081512F /* Date.swift */,
+				B6FCABC322A0135800B48206 /* String.swift */,
+				B6FCABC522A14AD700B48206 /* TextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -109,6 +115,9 @@
 		693DA53C226E2F730076BCA9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B66DFDB1228B6BA30081512F /* GuestListTableViewCell.swift */,
+				B66DFDA62288BFB30081512F /* RoomSelectTableViewCell.swift */,
+				B6C59CF32292B280006ABFD2 /* DetailGuestListCell.swift */,
 				691222172268FD96003364A8 /* Main.storyboard */,
 				6912221C2268FD9A003364A8 /* LaunchScreen.storyboard */,
 				B6C59CF12292B248006ABFD2 /* DetailGuestListCell.xib */,
@@ -130,8 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				B66DFDAA228B42D30081512F /* GuestListTableViewController.swift */,
-				B66DFDB1228B6BA30081512F /* GuestListTableViewCell.swift */,
-				B6C59CF32292B280006ABFD2 /* DetailGuestListCell.swift */,
 			);
 			path = "Guest List";
 			sourceTree = "<group>";
@@ -140,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				B66DFDA22288A9CD0081512F /* RoomSelectTableViewController.swift */,
-				B66DFDA62288BFB30081512F /* RoomSelectTableViewCell.swift */,
 			);
 			path = "Room Select";
 			sourceTree = "<group>";
@@ -226,7 +232,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B66DFDAD228B4BB10081512F /* GuestList.swift in Sources */,
+				B6FCABC422A0135800B48206 /* String.swift in Sources */,
 				B66DFDA72288BFB30081512F /* RoomSelectTableViewCell.swift in Sources */,
+				B6FCABC622A14AD700B48206 /* TextField.swift in Sources */,
 				B66DFDB2228B6BA30081512F /* GuestListTableViewCell.swift in Sources */,
 				B66DFDA32288A9CD0081512F /* RoomSelectTableViewController.swift in Sources */,
 				691222272268FE1A003364A8 /* Registration.swift in Sources */,

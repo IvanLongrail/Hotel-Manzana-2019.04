@@ -25,6 +25,7 @@ class GuestListTableViewController: UITableViewController {
     var detailCellIndexPath: IndexPath? = nil
     static var wifiPricePerDay = 10
     
+    
     // MARK: - View Controller Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class GuestListTableViewController: UITableViewController {
         tableView.register(detailCellNib, forCellReuseIdentifier: "detailGuestListCell")
     }
 
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -42,7 +44,7 @@ class GuestListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 
         let header = UIView(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: self.view.frame.width, height: 20)))
-        header.backgroundColor = UIColor.groupTableViewBackground
+        header.backgroundColor = .groupTableViewBackground
 
         let mainLabel = UILabel(frame: CGRect(x:10, y: 0, width: 150, height: 20))
        
@@ -56,12 +58,11 @@ class GuestListTableViewController: UITableViewController {
         font = UIFont.preferredFont(forTextStyle: .body).withSize(12)
         checkoutLabel.font = font
         checkoutLabel.text = "Checkout Date"
-        
-        
-//        let sortButton = UIButton(frame: CGRect(x: 300, y: 20, width: 20, height: 20))
-//        sortButton.titleLabel!.text = "Sort"
-//        sortButton.backgroundColor = UIColor.blue
        
+        header.addSubview(mainLabel)
+        header.addSubview(nameLabel)
+        header.addSubview(checkoutLabel)
+        
         switch section {
         case 0:
             mainLabel.text = "Staying Guests"
@@ -70,17 +71,45 @@ class GuestListTableViewController: UITableViewController {
         case 1:
             mainLabel.text = "Archive Guests"
             mainLabel.textColor = .darkGray
-            nameLabel.textColor = UIColor.darkGray
+            nameLabel.textColor = .darkGray
             checkoutLabel.textColor = .darkGray
+            
+            let clearAllButton = UIButton(frame: CGRect(x: 220, y: 0, width: 60, height: 16))
+            clearAllButton.layer.cornerRadius = 8
+            clearAllButton.setTitle("Clear All", for: .normal)
+            clearAllButton.titleLabel?.font = .systemFont(ofSize: 12)
+            clearAllButton.backgroundColor = .gray
+            clearAllButton.addTarget(self, action: #selector(clearButtonPressed), for: .touchUpInside)
+            header.addSubview(clearAllButton)
+            
+            clearAllButton.translatesAutoresizingMaskIntoConstraints = false
+            let clearAllButtonTrailingConstraint = NSLayoutConstraint(item: clearAllButton, attribute: .trailing, relatedBy: .equal, toItem: header, attribute: .trailing, multiplier: 1, constant: -20)
+            let clearAllButtonTopConstraint = NSLayoutConstraint(item: clearAllButton, attribute: .top, relatedBy: .equal, toItem: header, attribute: .top, multiplier: 1, constant: 4)
+            let clearAllButtonHeightConstraint = NSLayoutConstraint(item: clearAllButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 16)
+            let clearAllButtonWidthConstraint = NSLayoutConstraint(item: clearAllButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 60)
+            let clearAllButtonBottomConstraint = NSLayoutConstraint(item: clearAllButton, attribute: .bottom, relatedBy: .equal, toItem: checkoutLabel, attribute: .top, multiplier: 1, constant: -2)
+            NSLayoutConstraint.activate([clearAllButtonTrailingConstraint, clearAllButtonTopConstraint, clearAllButtonHeightConstraint, clearAllButtonWidthConstraint, clearAllButtonBottomConstraint])
+            
         default:
             break
         }
-        
-        header.addSubview(mainLabel)
-        header.addSubview(nameLabel)
-        header.addSubview(checkoutLabel)
 
+        checkoutLabel.translatesAutoresizingMaskIntoConstraints = false
+        let checkoutLabelTrailingConstraint = NSLayoutConstraint(item: checkoutLabel, attribute: .trailing, relatedBy: .equal, toItem: header, attribute: .trailing, multiplier: 1, constant: -20)
+        let checkoutLabelBottomConstraint = NSLayoutConstraint(item: checkoutLabel, attribute: .bottom, relatedBy: .equal, toItem: header, attribute: .bottom, multiplier: 1, constant: -2)
+        NSLayoutConstraint.activate([checkoutLabelTrailingConstraint,checkoutLabelBottomConstraint])
+        
         return header
+    }
+    
+    @objc func clearButtonPressed() {        
+        guestList.removeAll()
+        uploadGuestList()
+        
+        let deletingArchiveRows = (0..<self.tableView.numberOfRows(inSection: 1)).map { index in
+            return IndexPath(row: index, section: 1)
+        }
+        tableView.deleteRows(at: deletingArchiveRows, with: .automatic)
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -122,6 +151,7 @@ class GuestListTableViewController: UITableViewController {
         }
     }
 
+    
     // MARK: - Table View Delegate Methods
     /* Detail Guest List Cell */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -129,7 +159,7 @@ class GuestListTableViewController: UITableViewController {
         guard detailCellIndexPath != indexPath else { return }
         
         if detailCellIndexPath == nil {
-            insertDetailCell(at: indexPath.nextRow)
+            insertDetailCell(at: indexPath)
         } else
         if detailCellIndexPath == indexPath.nextRow {
             deleteDetailCell(at: indexPath.nextRow)
@@ -139,13 +169,13 @@ class GuestListTableViewController: UITableViewController {
                 insertingCellIndexPath.row -= 1
             }
             deleteDetailCell(at: detailCellIndexPath!)
-            insertDetailCell(at: insertingCellIndexPath.nextRow)
+            insertDetailCell(at: insertingCellIndexPath)
         }
             
     }
     
-    private func insertDetailCell(at indexPath: IndexPath) {
-        detailCellIndexPath = indexPath
+    private func insertDetailCell(at indexPathGuestCell: IndexPath) {
+        detailCellIndexPath = indexPathGuestCell.nextRow
         tableView.insertRows(at: [detailCellIndexPath!], with: .automatic)
     }
     private func deleteDetailCell(at indexPath: IndexPath) {
@@ -169,9 +199,11 @@ class GuestListTableViewController: UITableViewController {
             })
 
             let toArchiveAction = UITableViewRowAction(style: .destructive, title: "Archive") { (_, indexPath) in
+                if self.detailCellIndexPath != nil {
+                    self.deleteDetailCell(at: self.detailCellIndexPath!)
+                }
                 self.guestList.addToArchive(from: indexPath.row)
                 self.uploadGuestList()
-
                 tableView.reloadData()
             }
 
@@ -191,6 +223,7 @@ class GuestListTableViewController: UITableViewController {
         }
     }
     
+    
     // MARK: - Prepare Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "editGuestSegue" else { return }
@@ -200,6 +233,7 @@ class GuestListTableViewController: UITableViewController {
         addRegistrationViewController.guest = guestList.currentGuests[indexPath.row]
     }
 
+    
     // MARK: - Unwind Method
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         guard segue.identifier == "AddGuest" else { return }
@@ -207,8 +241,6 @@ class GuestListTableViewController: UITableViewController {
         let addRegistrationTableViewController = segue.source as! AddRegistrationTableViewController
         
         if addRegistrationTableViewController.saveButton.title == "Add" {
-            
-            let g = addRegistrationTableViewController.guest
             newGuest = addRegistrationTableViewController.guest
         } else {
             guestList.change(at: editingIndexPath!.row, by: addRegistrationTableViewController.guest!)
@@ -217,8 +249,8 @@ class GuestListTableViewController: UITableViewController {
 
         tableView.reloadData()
     }
-
 }
+
 
 // MARK: - Setup UI Methods
 extension GuestListTableViewController {
@@ -287,7 +319,6 @@ extension GuestListTableViewController {
     ///             2: detail cell
     private func setupColors(of cell: UITableViewCell, withTypeCell: Int) {
         switch withTypeCell {
-            
         case 0:
             setTextColor(in: cell, with: .black)
             cell.backgroundColor = .white
@@ -299,6 +330,7 @@ extension GuestListTableViewController {
         case 2:
             setTextColor(in: cell, with: .white)
             cell.backgroundColor = .lightGray
+            
         default:
             break
         }
@@ -325,6 +357,7 @@ extension GuestListTableViewController {
         write(guestList, to: fileName)
     }
 }
+
 
 // MARK: - Permanent plist files storage
 extension GuestListTableViewController {

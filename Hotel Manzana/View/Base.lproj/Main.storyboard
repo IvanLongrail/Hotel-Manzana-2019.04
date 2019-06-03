@@ -110,6 +110,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldChanged:" destination="Q1o-ER-AsT" eventType="editingChanged" id="dgW-TR-Hw1"/>
+                                                        <outlet property="delegate" destination="Q1o-ER-AsT" id="zrz-Ca-66Z"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -135,6 +136,7 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
                                                         <action selector="textFieldChanged:" destination="Q1o-ER-AsT" eventType="editingChanged" id="Wob-K3-LDb"/>
+                                                        <outlet property="delegate" destination="Q1o-ER-AsT" id="det-ax-tpC"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -157,9 +159,10 @@
                                                     <rect key="frame" x="16" y="11" width="288" height="22"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     <connections>
                                                         <action selector="textFieldChanged:" destination="Q1o-ER-AsT" eventType="editingChanged" id="13u-lw-dSl"/>
+                                                        <outlet property="delegate" destination="Q1o-ER-AsT" id="KsC-Tu-rog"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>

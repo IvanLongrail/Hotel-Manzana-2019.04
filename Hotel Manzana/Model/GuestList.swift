@@ -44,6 +44,10 @@ struct GuestList: Codable {
     mutating func remove(from index: Int) {
         self.archiveGuests.remove(at: index)
     }
+    
+    mutating func removeAll() {
+        self.archiveGuests.removeAll()
+    }
 }
 
 extension GuestList {

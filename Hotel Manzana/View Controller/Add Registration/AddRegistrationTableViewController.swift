@@ -9,6 +9,7 @@
 import UIKit
 
 class AddRegistrationTableViewController: UITableViewController {
+    
     // MARK: - IB Outlet
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var firstNameField: UITextField!
@@ -27,6 +28,7 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBOutlet weak var wifiTotalPriceLabel: UILabel!
     @IBOutlet weak var selectLabel: UILabel!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    
     
     // MARK: - UI Properties
     let saveButtonEditMode = false
@@ -53,6 +55,7 @@ class AddRegistrationTableViewController: UITableViewController {
     
     var keyboardDismissTapGesture: UIGestureRecognizer?
     
+    
     // MARK: - Data Properties
     var guest: Registration?
     var correctEnteredGuest = false {
@@ -72,6 +75,7 @@ class AddRegistrationTableViewController: UITableViewController {
     }
     var totalPrice: Int = 0
     
+    
     // MARK: - UIViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +93,19 @@ class AddRegistrationTableViewController: UITableViewController {
         super.viewWillDisappear(animated)
     }
     
+    
     // MARK: - Custom UI Methods
+    func setupSaveButton() {
+        saveButton.isEnabled = false
+        saveButton.title = guest != nil ? "Save" : "Add"
+    }
+    
+    func setupFieldColor() {
+        firstNameField.setupFieldColor(if: true)
+        lastNameField.setupFieldColor(if: true)
+        emailField.setupFieldColor(if: true)
+    }
+    
     func setupDateViews() {
         let midnightToday = Calendar.current.startOfDay(for: Date())
         checkInDatePicker.minimumDate = midnightToday
@@ -100,16 +116,18 @@ class AddRegistrationTableViewController: UITableViewController {
         wifiPricePerDayLabel.text = "Wi-Fi (" + String(wifiPricePerDay) + "$ per day)"
     }
     
-    func setupSaveButton() {
-        saveButton.isEnabled = false
-        saveButton.title = guest != nil ? "Save" : "Add"
-    }
-    
     func setupUI() {
         setupSaveButton()
+        setupFieldColor()
         setupDateViews()
         setupWiFiPerDay()
         updateNumberOfGuests()
+    }
+    
+    func updateFieldColor() {
+        firstNameField.setupFieldColor(if: resultOfFirstNameValidation())
+        lastNameField.setupFieldColor(if: resultOfLastNameValidation())
+        emailField.setupFieldColor(if: resultOfEmailValidation())
     }
     
     func updateDateViews() {
@@ -135,8 +153,6 @@ class AddRegistrationTableViewController: UITableViewController {
         selectLabel.text = selectedRoom?.name ?? "Select"
         totalPrice = selectedRoom != nil ? selectedRoom!.price * daysNumber + wifiTotalPrice : 0
         totalPriceLabel.text = String(totalPrice) + "$"
-        tableView.beginUpdates()
-        tableView.endUpdates()
     }
     
     func updateUI() {
@@ -159,8 +175,12 @@ class AddRegistrationTableViewController: UITableViewController {
         numberOfChildrenStepper.value = Double(editingGuest.numberOfChildren)
         numberOfChildrenLabel.text = "\(Int(numberOfChildrenStepper.value))"
         wifiSwitch.isOn = editingGuest.wifi
+        isWiFiTotalPriceShown = editingGuest.wifi
+        updateWiFiTotalPrice()
         selectedRoom = editingGuest.roomType
+        updateTotalPrice()
     }
+    
     
     // MARK: - Custom Methods
     func updateCorrectEnteredGuest() {
@@ -168,6 +188,7 @@ class AddRegistrationTableViewController: UITableViewController {
         let lastNameValid = resultOfLastNameValidation()
         let emailValid = resultOfEmailValidation()
         correctEnteredGuest = isRoomSelect && firstNameValid && lastNameValid && emailValid
+        updateFieldColor()
     }
     
     func updateGuest() {
@@ -186,22 +207,24 @@ class AddRegistrationTableViewController: UITableViewController {
         guest = Registration(firstName: firstName, lastName: lastName, emailAddress: email, checkInDate: checkInDate, checkOutDate: checkOutDate, numberOfAdults: numberOfAdults, numberOfChildren: numberOfChildren, roomType: roomType, wifi: wifi)
     }
     
+    
     // MARK: - Text Fields Validation
     func resultOfFirstNameValidation() -> Bool {
-        return !firstNameField.text!.isEmpty
+        return !firstNameField.text!.isName
     }
     
     func resultOfLastNameValidation() -> Bool {
-        return !lastNameField.text!.isEmpty
+        return !lastNameField.text!.isName
     }
     
     func resultOfEmailValidation() -> Bool {
-        return !emailField.text!.isEmpty
+        return !emailField.text!.isEmail
     }
-    
+
     
     // MARK: - IB Actions
     @IBAction func textFieldChanged(_ sender: UITextField) {
+        updateCorrectEnteredGuest()
         switch sender {
         case firstNameField:
             guard resultOfFirstNameValidation() else { return }
@@ -212,6 +235,7 @@ class AddRegistrationTableViewController: UITableViewController {
         default:
             return
         }
+
         updateGuest()
     }
   
@@ -220,6 +244,8 @@ class AddRegistrationTableViewController: UITableViewController {
         updateWiFiTotalPrice()
         updateTotalPrice()
         updateGuest()
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
     @IBAction func stepperValueChanged() {
@@ -236,6 +262,7 @@ class AddRegistrationTableViewController: UITableViewController {
         tableView.endUpdates()
     }
 }
+
 
 // MARK: - Table View Data Source
 extension AddRegistrationTableViewController /*: UITableViewDataSource */ {
@@ -258,10 +285,10 @@ extension AddRegistrationTableViewController /*: UITableViewDataSource */ {
             
         default:
             return autoHeight
-            
         }
     }
 }
+
 
 // MARK: - Table View Delegate
 extension AddRegistrationTableViewController /*: UITableViewDelegate */ {
@@ -289,16 +316,16 @@ extension AddRegistrationTableViewController /*: UITableViewDelegate */ {
         
         tableView.beginUpdates()
         tableView.endUpdates()
-        
     }
 }
 
+
 // MARK: - Text Field Delegate
 extension AddRegistrationTableViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        return true
+        return  true
     }
 }
 
@@ -321,16 +348,16 @@ extension AddRegistrationTableViewController {
         
         if let selectedRoomIndexPath = roomSelectTableViewController.selectedСellIndexPath {
             selectedRoom = RoomType.all[selectedRoomIndexPath.row]
-            //updateTotalPrice()
-            //updateCorrectEnteredGuest()
         } else {
             selectedRoom = nil
         }
         
         updateTotalPrice()
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
-    
 }
+
 
 // MARK: - Keyboard Notifications
 extension AddRegistrationTableViewController {
